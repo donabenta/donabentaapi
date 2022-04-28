@@ -1,0 +1,7 @@
+{
+    "db_name": "donabentadb",
+    "db_password": "1234",
+    "db_user": "postgres",
+    "db_host": "localhost",
+    "secret_key": "$965*%(&¨@$jWJRLGKHjHGR)*87$¨7*GY7rg¨¨$g$g4yO"
+}
