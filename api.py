@@ -40,6 +40,8 @@ def login():
             if login_is_right:
                 session["userId"] = row["IdUsuario"]
 
+        cursor.close()
+        
         if login_is_right:
             return jsonify({"status": True}), 200
             
@@ -51,6 +53,20 @@ def logout():
     session.pop("userId", None)
     return jsonify({"status": "ok"})
 
+@app.route('/signup', methods=["POST"])
+def signup():
+    if request.method == "POST":
+        
+        signup_data = request.get_json()
+
+        signup_query = f'''INSERT INTO public."Usuario"("Nome", "Senha", "Email") VALUES ('{signup_data['name']}', '{signup_data['password']}', '{signup_data['email']}');''' 
+
+        cursor.execute(signup_query)
+        conn.commit()
+        cursor.close()
+
+        return jsonify({"status": True}), 200
+        
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
