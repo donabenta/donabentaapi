@@ -76,7 +76,6 @@ def dispositivoSessao():
 @app.route('/status', methods=["POST"])
 def status():
     if 'key_dispositivo' in session:
-        pass
         return jsonify({"status": True})
     else:
         return jsonify({"message": "Sem permissão"}), 401
