@@ -75,6 +75,7 @@ def dispositivoSessao():
 
 @app.route('/status', methods=["POST"])
 def status():
+    print(session["key_dispositivo"])
     if 'key_dispositivo' in session:
         return jsonify({"status": True})
     else:
