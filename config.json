@@ -1,7 +1,7 @@
 {
-    "db_name": "donabentadb",
-    "db_password": "1234",
-    "db_user": "postgres",
-    "db_host": "localhost",
+    "db_name": "dl9nirgbcr9f7",
+    "db_password": "defa3f6d0a400e7879e4cb5d73a8dbaf71b0ff458a40e2133012877e22184dac",
+    "db_user": "yzbrayxkggdiax",
+    "db_host": "ec2-52-86-115-245.compute-1.amazonaws.com",
     "secret_key": "$965*%(&¨@$jWJRLGKHjHGR)*87$¨7*GY7rg¨¨$g$g4yO"
 }
