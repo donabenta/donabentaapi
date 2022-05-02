@@ -71,9 +71,9 @@ def signup():
 def dispositivoSessao():
     dispositivo_session = request.get_json()
     session["key_dispositivo"] = dispositivo_session["key"]
+    return jsonify({"message": session["key_dispositivo"]})
 
 @app.route('/status', methods=["POST"])
-
 def status():
     if 'key_dispositivo' in session:
         pass
