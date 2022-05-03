@@ -87,7 +87,7 @@ def status():
         cursor.execute(session_query)
         result = cursor.fetchall()
         
-        status = result["Status"]
+        status = result[0]["Status"]
 
 
         conn.commit()
