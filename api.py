@@ -67,20 +67,24 @@ def signup():
 
         return jsonify({"status": True}), 200
 
-@app.route('/dispositivoSessao', methods=["POST"])
-def dispositivoSessao():
+@app.route('/dispositivoLogin', methods=["POST"])
+def dispositivoLogin():
     dispositivo_session = request.get_json()
     session["key_dispositivo"] = dispositivo_session["key"]
     return jsonify({"message": session["key_dispositivo"]})
 
-@app.route('/status', methods=["POST"])
+@app.route('/dispositivoLogout', methods=["POST"])
+def dispositivoLogout():
+    session.pop("key_dispositivo", None)
+    return jsonify({"message": "ok"})
+
+@app.route('/status', methods=["GET"])
 def status():
     print(session["key_dispositivo"])
     if 'key_dispositivo' in session:
         return jsonify({"status": True})
     else:
         return jsonify({"message": "Sem permissão"}), 401
-    
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
