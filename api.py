@@ -82,7 +82,17 @@ def dispositivoLogout():
 def status():
     print(session["key_dispositivo"])
     if 'key_dispositivo' in session:
-        return jsonify({"status": True})
+        session_query = '''SELECT "IdDispositivo", "Nome", "Status", "IdUsuario"
+	FROM public."Dispositivo" WHERE "IdDispositivo" = {};'''.format(session["key_dispositivo"])
+        cursor.execute(session_query)
+        result = cursor.fetchall()
+        
+        status = result["Status"]
+
+
+        conn.commit()
+        cursor.close()
+        return jsonify({"status": status})
     else:
         return jsonify({"message": "Sem permissão"}), 401
 
