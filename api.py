@@ -91,7 +91,6 @@ def status():
 
 
         conn.commit()
-        cursor.close()
         return jsonify({"status": status})
     else:
         return jsonify({"message": "Sem permissão"}), 401
