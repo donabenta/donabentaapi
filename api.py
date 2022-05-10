@@ -69,7 +69,7 @@ def signup():
         return jsonify({"status": True}), 200
 
 @app.route('/dispositivoLogin', methods=["POST"])
-@cross_origin()
+
 def dispositivoLogin():
     dispositivo_session = request.get_json()
     session["key_dispositivo"] = dispositivo_session["key"]
