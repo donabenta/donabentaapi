@@ -8,6 +8,7 @@ verify_ssl = true
 
 Flask = "*"
 psycopg2 = "*"
+flask_cors = "*"
 
 [requires]
 
