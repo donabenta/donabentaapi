@@ -41,7 +41,6 @@ def login():
             if login_is_right:
                 session["userId"] = row["IdUsuario"]
 
-        cursor.close()
         
         if login_is_right:
             return jsonify({"status": True}), 200
