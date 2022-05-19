@@ -95,6 +95,16 @@ def status():
     else:
         return jsonify({"message": "Sem permissão"}), 401
 
+@app.route('/sendVoiceText', methods=["POST"])
+def send_voice_text():
+    request_body = request.get_json()
+    message = request_body["message"]
+
+    if "ligar" in message:
+        query_string = "UPDATE Dispositivo SET Status = true"
+    if "desligar" in message:
+        query_string = "UPDATE Dispositivo SET Status = false"
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
