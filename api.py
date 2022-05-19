@@ -43,7 +43,7 @@ def login():
 
         
         if login_is_right:
-            return jsonify({"status": True}), 200
+            return jsonify({session: session["userId"]}), 200
             
         else: 
             return jsonify({"status": False}), 401
