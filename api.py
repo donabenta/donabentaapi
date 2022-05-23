@@ -102,9 +102,11 @@ def send_voice_text():
 
     if "ligar" in message:
         query_string = "UPDATE Dispositivo SET Status = true"
+        cursor.execute(query_string)
         return jsonify({"status": "Ligado!"}), 200
     if "desligar" in message:
         query_string = "UPDATE Dispositivo SET Status = false"
+        cursor.execute(query_string)
         return jsonify({"status": "Desligado!"}), 200
 
 
