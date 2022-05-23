@@ -102,8 +102,11 @@ def send_voice_text():
 
     if "ligar" in message:
         query_string = "UPDATE Dispositivo SET Status = true"
+        return jsonify({"status": "Ligado!"}), 200
     if "desligar" in message:
         query_string = "UPDATE Dispositivo SET Status = false"
+        return jsonify({"status": "Desligado!"}), 200
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
